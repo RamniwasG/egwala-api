@@ -18,6 +18,8 @@ mongoose.connect(process.env.MONGODB_CLOUD_URL).then(() => {
 });
 
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/api', (req, res) => {
     res.send({ message: "App is runing!" });
