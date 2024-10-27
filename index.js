@@ -6,8 +6,6 @@ import dotenv from 'dotenv';
 import categoryRouter from './routes/categoryRouter.js';
 
 const app = express();
-const port = process.env.PORT || 5003;
-
 dotenv.config();
 
 mongoose.connect(process.env.MONGODB_CLOUD_URL).then(() => {
@@ -26,6 +24,7 @@ app.get('/api', (req, res) => {
 });
 app.use('/api/categories', categoryRouter);
 
+const port = process.env.PORT || 5003;
 app.listen(port, () => {
     console.log("app is runing at " + port);
 })
