@@ -7,8 +7,7 @@ const categoryRouter = express.Router();
 categoryRouter.get(
 	'/get-categories',
 	expressAsyncHandler(async (req, res) => {
-		const categories = await Category.find({});
-		console.log(categories)
+		const categories = await Category.find({}).sort({ _id: -1 })
 		res.send(categories);
 	})
 );
