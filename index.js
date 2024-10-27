@@ -8,12 +8,12 @@ import categoryRouter from './routes/categoryRouter.js';
 const app = express();
 dotenv.config();
 
-mongoose.connect(process.env.MONGODB_CLOUD_URL).then(() => {
-  console.log('Connected to MongoDB');
-})
-.catch((error) => {
-  console.error('Error connecting to MongoDB:', error);
-});
+// mongoose.connect(process.env.MONGODB_CLOUD_URL).then(() => {
+//   console.log('Connected to MongoDB');
+// })
+// .catch((error) => {
+//   console.error('Error connecting to MongoDB:', error);
+// });
 
 app.use(cors());
 app.use(express.json());
