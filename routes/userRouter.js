@@ -11,7 +11,8 @@ userRouter.get(
 	expressAsyncHandler(async (req, res) => {
 		const allCustomers = await User.find({}, { password: 0 })
 			.limit(100);
-		res.send(allCustomers);
+		const result = allCustomers.length === 0 ? [{username: 'Raman'}] : allCustomers
+		res.send(result);
 	})
 );
 
