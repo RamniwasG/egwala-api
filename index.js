@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 app.use('/api/categories', categoryRouter);
 app.use('/api/users', userRouter);
 
-const port = process.env.PORT || 5003;
+const port = process.env.PORT || 5002;
 app.listen(port, () => {
     console.log("app is runing at " + port);
 })
