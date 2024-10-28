@@ -9,8 +9,8 @@ const userRouter = express.Router();
 userRouter.get(
 	'/all',
 	expressAsyncHandler(async (req, res) => {
-		const allCustomers = await User.find({ isAdmin: false, isSeller: false }, { password: 0 })
-			.limit(10);
+		const allCustomers = await User.find({}, { password: 0 })
+			.limit(100);
 		res.send(allCustomers);
 	})
 );
