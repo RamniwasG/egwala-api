@@ -11,8 +11,7 @@ userRouter.get(
 	expressAsyncHandler(async (req, res) => {
 		const allCustomers = await User.find({}, { password: 0 })
 			.limit(100);
-		const result = allCustomers.length === 0 ? [{username: 'Raman'}] : allCustomers
-		res.send(result);
+		res.send(allCustomers);
 	})
 );
 
@@ -24,7 +23,7 @@ userRouter.post(
 			if (bcrypt.compareSync(req.body.password, user.password)) {
 				res.send({
 					_id: user._id,
-					name: user.name,
+					name: user.username,
 					email: user.email,
 					isAdmin: user.isAdmin,
 					isSeller: user.isSeller,
@@ -47,7 +46,7 @@ userRouter.post(
 		const createdUser = await user.save();
 		res.send({
 			_id: createdUser._id,
-			name: createdUser.name,
+			username: createdUser.username,
 			email: createdUser.email,
 			isAdmin: createdUser.isAdmin,
 			isSeller: user.isSeller,
