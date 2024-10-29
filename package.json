@@ -19,6 +19,7 @@
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.2",
     "mailgun-js": "^0.22.0",
-    "mongoose": "^8.7.3"
+    "mongoose": "^8.7.3",
+    "morgan": "^1.10.0"
   }
 }

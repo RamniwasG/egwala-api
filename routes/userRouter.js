@@ -25,8 +25,7 @@ userRouter.post(
 					_id: user._id,
 					name: user.username,
 					email: user.email,
-					isAdmin: user.isAdmin,
-					isSeller: user.isSeller,
+					roles: user.roles,
 					token: generateToken(user),
 				});
 				return;
@@ -44,12 +43,12 @@ userRouter.post(
 			password: bcrypt.hashSync(req.body.password, 8),
 		});
 		const createdUser = await user.save();
+		console.log(JSON.stringify(createdUser))
 		res.send({
 			_id: createdUser._id,
 			username: createdUser.username,
 			email: createdUser.email,
-			isAdmin: createdUser.isAdmin,
-			isSeller: user.isSeller,
+			roles: createdUser.roles,
 			token: generateToken(createdUser),
 		});
 	})
