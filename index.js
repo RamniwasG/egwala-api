@@ -4,7 +4,7 @@ import morgan from 'morgan';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
-import categoryRouter from './routes/categoryRouter.js';
+import milkRouter from './routes/milkRouter.js';
 import userRouter from './routes/userRouter.js';
 
 const app = express();
@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
     res.send({ message: "App is runing!" });
 });
-app.use('/api/categories', categoryRouter);
+app.use('/api/milks', milkRouter);
 app.use('/api/users', userRouter);
 
 const port = process.env.PORT || 5002;

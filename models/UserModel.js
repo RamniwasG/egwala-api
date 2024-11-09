@@ -7,6 +7,7 @@ const UserSchema = new mongoose.Schema(
 		password: { type: String, required: true },
         phone: { type: String },
 		roles: [{ type: String, required: true }],
+		seller_id: { type: mongoose.Schema.Types.ObjectId, required: false }
 	},
 	{
 		timestamps: true,
